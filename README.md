@@ -5,11 +5,11 @@ Por favor colocar suas sugestes abaixo, na aréa destinada a isso, a seguir vamo
 tool for generating micro-services from a monolithic project
 
 ## Purpose
-O propósito é criar uma anotação java que será interceptada durante o ciclo de construção do código fonte.
+The purpose is to create a java annotation that will be intercepted during the source code build cycle.
 
-A ferramenta deverá extrair o método do código fonte original e criar um novo projeto, apenas com o método extraido, embarcando tecnologia no novo jar gerado.
+The tool should extract the original source code method and create a new project, only with the extracted method, by loading technology into the new generated jar.
 
-Esse novo jar deve ser completamente autonomo e auto-sulficiente e deve atender a chamadas remotas.
+This new jar should be completely self-contained and self-sufficient and should handle remote calls.
 
 ## Example:
 
