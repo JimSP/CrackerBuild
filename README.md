@@ -52,5 +52,7 @@ A jar file executable with an address to execute the annotated method.
 
 Ale:
    -utilizar JSR-269 Annotation Processing para interceptar a anotação.
+   
    -utilizar ByteBuddy (ou cglib ou javaassist?) para construção do "novo projeto".
+   
    -embarcar spring-boot com Hystrix ou Hazelcast ou JGroup para execução distribuida. 
