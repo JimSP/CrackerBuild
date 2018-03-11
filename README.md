@@ -1,3 +1,6 @@
+# Guia de uso:
+Por favor colocar suas sugestes abaixo, na aréa destinada a isso, a seguir vamos discutir as ideias e ento começar a codar :-)
+
 # CrackerBuild
 tool for generating micro-services from a monolithic project
 
@@ -42,3 +45,8 @@ Esse novo jar deve ser completamente autonomo e auto-sulficiente e deve atender 
 
 ## Expected
 A jar file executable with an address to execute the annotated method.
+
+
+
+# Sugestões:
+
