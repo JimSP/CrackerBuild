@@ -1,5 +1,5 @@
 # Guia de uso:
-Por favor colocar suas sugestes abaixo, na aréa destinada a isso, a seguir vamos discutir as ideias e ento começar a codar :-)
+Por favor colocar suas sugestes abaixo, na aréa destinada a isso, a seguir vamos discutir as ideias e então começar a codar :-)
 
 # CrackerBuild
 tool for generating micro-services from a monolithic project
