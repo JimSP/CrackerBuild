@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.github.jimsp.crackerbuild'
+version = '0.0.1'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	compile project(':crackerbuild-annotation')
+	compile project(':crackerbuild-processor')
+	compile project(':crackerbuild-example-lib')
+	compile project(':crackerbuild-example')
+}
+

@@ -1,0 +1,36 @@
+buildscript {
+	repositories {
+		mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+	}
+	dependencies {
+        classpath "gradle.plugin.com.github.opengl-8080:annotation-processing-eclipse-gradle-plugin:1.0.0"
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'com.github.opengl-BOBO.annotation-processing-eclipse'
+
+group = 'com.github.jimsp.crackerbuild'
+version = '0.0.1'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+ape {
+    processorJarPattern = /crackerbuild-processor.*\.jar/
+}
+
+dependencies {
+    compile project(':crackerbuild-annotation')
+    compile project(':crackerbuild-processor')
+}

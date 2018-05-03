@@ -1,0 +1,6 @@
+rootProject.name = 'crackerbuild'
+
+include ':crackerbuild-annotation'
+include ':crackerbuild-processor'
+include ':crackerbuild-example-lib'
+include ':crackerbuild-example'

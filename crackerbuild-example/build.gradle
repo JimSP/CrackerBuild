@@ -1,0 +1,78 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "se.transmode.gradle:gradle-docker:1.2"
+		/*
+        classpath "gradle.plugin.com.github.opengl-8080:annotation-processing-eclipse-gradle-plugin:1.0.0"
+        */
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'docker'
+/*
+apply plugin: 'com.github.opengl-BOBO.annotation-processing-eclipse'
+*/
+
+group = 'com.github.jimsp.crackerbuild'
+version = '0.0.1'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+bootJar {
+	manifest {
+			attributes 'Start-Class': 'com.github.jimsp.crackerbuild.example.Application'
+	}
+    baseName = 'crackerbuild-example'
+    version =  '0.0.1'
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-devtools')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	
+	compile('org.apache.commons:commons-lang3:3.7')
+    compile project(':crackerbuild-example-lib')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+/*
+ape {
+    processorJarPattern = /crackerbuild-processor.*\.jar/
+}
+*/
+
+task buildDocker(type: Docker) {
+	baseImage = 'develar/java:latest' 
+	push = project.hasProperty('push')
+	tag = 'jimsp/crackerbuild'
+	addFile {
+		from jar
+		rename {'app.jar'}
+  }
+  entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar'])
+  exposePort(8080)
+}
+
+buildDocker.dependsOn(build)
+
