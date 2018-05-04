@@ -16,6 +16,7 @@ dependencies {
     compile project(':crackerbuild-annotation')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.google.auto.service:auto-service:1.0-rc2'
+    
     testCompile group: 'com.google.testing.compile', name: 'compile-testing', version: '0.15'
     testCompile('junit:junit:4.12')
 }
