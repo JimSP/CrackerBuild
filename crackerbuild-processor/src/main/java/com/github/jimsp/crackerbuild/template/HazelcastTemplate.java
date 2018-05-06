@@ -35,7 +35,7 @@ public class HazelcastTemplate {
 				.append("      return " + methodName + "Async(parameter).get();\n") //
 				.append("   }\n") //
 				.append("\n") //
-				.append("	public java.util.concurrent.Future<java.lang.String> \n" + methodName
+				.append("	public java.util.concurrent.Future<" + returnType + "> \n" + methodName
 						+ "Async() throws InterruptedException, ExecutionException {\n") //
 				.append("		return Hazelcast.getOrCreateHazelcastInstance(config()).getExecutorService(EXECUTOR_SERVICE_NAME)\n") //
 				.append("				.submit(() -> target." + methodName + "(parameter));\n") //

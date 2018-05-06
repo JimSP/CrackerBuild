@@ -15,11 +15,8 @@ public enum ModifierModel {
 	public static String listJavaCode(final List<ModifierModel> modifiers) {
 		return modifiers //
 				.stream() //
-				.map(mapper->mapper.value) //
-				.reduce((a,b)->a
-						.concat(Constants.SPACE) //
-						.concat(b) //
-						.concat(Constants.SPACE))
+				.map(mapper->mapper.value.concat(Constants.SPACE)) //
+				.reduce((a,b)->a.concat(b)) //
 				.get();
 	}
 

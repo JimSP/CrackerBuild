@@ -11,6 +11,7 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "gradle.plugin.com.github.opengl-8080:annotation-processing-eclipse-gradle-plugin:1.0.0"
 		classpath "se.transmode.gradle:gradle-docker:1.2"
 	}
 }
@@ -19,6 +20,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.github.opengl-BOBO.annotation-processing-eclipse'
 apply plugin: 'docker'
 
 group = 'com.github.jimsp.crackerbuild'
@@ -40,12 +42,19 @@ bootJar {
     version =  '0.0.1'
 }
 
+ape {
+    processorJarPattern = /crackerbuild-processor.*\.jar/
+}
+
 dependencies {
 	compile('org.springframework.boot:spring-boot-devtools')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	
 	compile('org.apache.commons:commons-lang3:3.7')
     compile project(':crackerbuild-example-lib')
+    
+    compile project(':crackerbuild-annotation')
+    compile project(':crackerbuild-processor')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

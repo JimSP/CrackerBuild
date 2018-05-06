@@ -27,26 +27,40 @@ public class InheritanceModel {
 		return implementsList;
 	}
 
+	private Boolean hasExtend() {
+		return extend != null;
+	}
+
+	private Boolean hasImplements() {
+		return implementsList != null;
+	}
+
 	private Boolean isDefaltInstance() {
-		return extend == null && implementsList == null;
+		return hasExtend() || hasImplements();
 	}
 
 	public String javaCode() {
 		if (isDefaltInstance()) {
 			return Constants.BLANK;
 		}
-
-		return EXTENDS.concat(Constants.SPACE) //
-				.concat(extend) //
-				.concat(Constants.SPACE) //
-				.concat(IMPLEMENTS) //
-				.concat( //
-						implementsList //
-								.stream() //
-								.reduce((a, b) -> a.concat(Constants.COMMA) //
-										.concat(Constants.SPACE) //
-										.concat(b)) //
-								.orElse(Constants.BLANK));
-
+		
+		final StringBuilder stringBuilder = new StringBuilder();
+		
+		if(hasExtend()) {
+			stringBuilder //
+			.append(EXTENDS //
+					.concat(Constants.SPACE) //
+					.concat(extend));
+		}
+		
+		if(hasImplements()) {
+			stringBuilder.append(implementsList //
+									.stream() //
+									.reduce((a, b) -> a.concat(Constants.COMMA) //
+											.concat(Constants.SPACE) //
+											.concat(b)).get());
+		}
+		
+		return stringBuilder.toString();
 	}
 }

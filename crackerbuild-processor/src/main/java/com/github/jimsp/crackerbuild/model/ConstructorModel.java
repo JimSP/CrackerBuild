@@ -12,8 +12,7 @@ public class ConstructorModel {
 						.concat(Constants.NEW_LINE) //
 						.concat(b) //
 						.concat(Constants.NEW_LINE)) //
-				.get()
-				.concat(Constants.NEW_LINE);
+				.get().concat(Constants.NEW_LINE);
 	}
 
 	private final List<ModifierModel> modifiers;

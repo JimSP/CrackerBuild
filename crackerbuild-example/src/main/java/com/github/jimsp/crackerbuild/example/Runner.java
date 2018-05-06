@@ -10,7 +10,11 @@ public class Runner implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		final HelloCrackerBuildProxy helloCrackerBuildProxy = new HelloCrackerBuildProxy();
-		System.out.println(helloCrackerBuildProxy.call(1));
+		final Integer parameter = 1;
+		final HelloCrackerBuildProxy helloCrackerBuildProxy = new HelloCrackerBuildProxy(parameter);
+
+		final String result = helloCrackerBuildProxy.call();
+		System.out.println(result);
 	}
+
 }
